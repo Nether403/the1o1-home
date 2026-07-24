@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "The engineering dossier for The House of Every Style: architecture, budgets, tricks, and tradeoffs. Transparent by design.",
   openGraph: {
     title: "How this was built — the1o1.one",
-    description: "Six design systems on one page, budget-gated in CI. The full dossier.",
+    description: "Seven design systems on one page, budget-gated in CI. The full dossier.",
     images: [{ url: "/og/deal", width: 1200, height: 630 }],
   },
 };
@@ -30,12 +30,12 @@ export default function Built() {
       <header className="b-hero">
         <p className="b-kick">THE HOUSE OF EVERY STYLE — ENGINEERING DOSSIER</p>
         <h1>
-          Six design systems.
+          Seven design systems.
           <br />
           One page. <span>No excuses.</span>
         </h1>
         <p className="b-lede">
-          The homepage you just left renders one set of content through six fully-committed design
+          The homepage you just left renders one set of content through seven fully-committed design
           languages — typography, palette, motion physics, cursor — and deals you a different opening
           world every visit. This page explains how, with real numbers. If you&apos;re evaluating
           whether we can engineer your hard problem: this is the evidence, not the pitch.
@@ -134,7 +134,23 @@ export default function Built() {
       </section>
 
       <section>
-        <h2>06 — Standing on shoulders</h2>
+        <h2>06 — Devlog: World of the Month №1 — Y2K Chrome</h2>
+        <p>
+          July 2026&apos;s guest register shipped exactly the way the architecture promised: as a
+          data PR. One manifest (tokens, Michroma, a liquid-metal cursor spec, a center-out wipe),
+          one section, one gate with a scroll-scrubbed lens flare, one signature moment — a chrome
+          blob that tails the cursor at the lag heavy metal deserves. The deal now weights the
+          featured world at ~30% for its month; deep link: <code>?w=y2k</code>.
+        </p>
+        <p>
+          What it cost: one font subset (Michroma, on-demand), zero new dependencies, zero new
+          budget exceptions — the CI gate passed untouched. The trick worth keeping: chrome is just
+          a five-stop gradient with the mids crushed; everything else is restraint.
+        </p>
+      </section>
+
+      <section>
+        <h2>07 — Standing on shoulders</h2>
         <ul className="b-links">
           <li><a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">Next.js 15</a> — static-first shell, App Router</li>
           <li><a href="https://gsap.com" target="_blank" rel="noopener noreferrer">GSAP + ScrollTrigger</a> &amp; <a href="https://lenis.darkroom.engineering" target="_blank" rel="noopener noreferrer">Lenis</a> — the scroll cinema</li>

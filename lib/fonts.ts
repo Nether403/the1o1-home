@@ -18,6 +18,7 @@ import {
   Bodoni_Moda,
   IBM_Plex_Mono,
   Inter,
+  Michroma,
   Oswald,
   Playfair_Display,
 } from "next/font/google";
@@ -77,6 +78,13 @@ export const playfair = Playfair_Display({
   display: "swap",
   preload: false,
 });
+export const michroma = Michroma({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-michroma",
+  display: "swap",
+  preload: false,
+});
 
 export const fontVariables = [
   inter.variable,
@@ -87,4 +95,5 @@ export const fontVariables = [
   baloo.variable,
   oswald.variable,
   playfair.variable,
+  michroma.variable,
 ].join(" ");

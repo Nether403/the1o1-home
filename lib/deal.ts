@@ -7,12 +7,19 @@
  *
  * Deep links: ?w=swiss|maison|brut|term|toy|noir
  */
-export const WORLD_IDS = ["swiss", "maison", "brut", "term", "toy", "noir"] as const;
+export const WORLD_IDS = ["swiss", "maison", "brut", "term", "toy", "noir", "y2k"] as const;
+
+/** World of the Month: the featured world is dealt more often while fresh. */
+export const FEATURED_WORLD = "y2k";
+export const FEATURED_WEIGHT = 0.3;
 
 export const DEAL_SCRIPT = `(function(){
   var d=document.documentElement;
   var W=${JSON.stringify(WORLD_IDS)};
-  var w=W[Math.floor(Math.random()*W.length)];
+  var F=${JSON.stringify(FEATURED_WORLD)},FW=${FEATURED_WEIGHT};
+  var w;
+  if(Math.random()<FW){w=F;}
+  else{var P=W.filter(function(x){return x!==F});w=P[Math.floor(Math.random()*P.length)];}
   try{var q=new URLSearchParams(location.search).get('w');if(q&&W.indexOf(q)>-1)w=q;}catch(e){}
   d.setAttribute('data-hero',w);
   /* reveal-pending is set here (JS-land) so a no-JS visit never hides

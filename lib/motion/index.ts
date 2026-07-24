@@ -18,6 +18,7 @@ import { maisonMotion } from "./maison";
 import { brutMotion } from "./brut";
 import { termMotion } from "./term";
 import { toyMotion } from "./toy";
+import { y2kMotion } from "./y2k";
 import { noirMotion } from "./noir";
 import { endMotion } from "./end";
 
@@ -53,6 +54,8 @@ export function initMotion(): () => void {
     if (brutCleanup) extraCleanups.push(brutCleanup);
     termMotion();
     toyMotion();
+    const y2kCleanup = y2kMotion();
+    if (y2kCleanup) extraCleanups.push(y2kCleanup);
     noirMotion();
     endMotion();
   });

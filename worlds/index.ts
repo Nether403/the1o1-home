@@ -106,6 +106,10 @@ export const noir: WorldManifest = {
   motion: { ease: "power2.out", entrance: "fade", seam: "flashlight" },
 };
 
-export const WORLDS: Record<WorldId, WorldManifest> = { swiss, maison, brut, term, toy, noir };
-export const WORLD_ORDER: WorldId[] = ["swiss", "maison", "brut", "term", "toy", "noir"];
+import { y2k } from "./y2k";
+export { y2k };
+
+export const WORLDS: Record<WorldId, WorldManifest> = { swiss, maison, brut, term, toy, noir, y2k };
+/** The Walk order — noir stays the closer; the guest world sits before the final reel. */
+export const WORLD_ORDER: WorldId[] = ["swiss", "maison", "brut", "term", "toy", "y2k", "noir"];
 export type { WorldId, WorldManifest } from "./schema";

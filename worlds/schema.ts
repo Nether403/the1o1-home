@@ -6,7 +6,7 @@
  * wipe — lives in its manifest. Adding "World of the Month" is a data PR.
  */
 
-export type WorldId = "swiss" | "maison" | "brut" | "term" | "toy" | "noir";
+export type WorldId = "swiss" | "maison" | "brut" | "term" | "toy" | "noir" | "y2k";
 
 export interface FontRef {
   /** CSS font-family stack as used in stylesheets */
@@ -36,7 +36,7 @@ export interface WipeSpec {
 /** Scroll/motion personality (consumed by the GSAP timeline factories in M3). */
 export interface MotionSpec {
   ease: string;
-  entrance: "slide" | "lift" | "slam" | "type" | "pop" | "fade";
+  entrance: "slide" | "lift" | "slam" | "type" | "pop" | "fade" | "shine";
   /** Seam-gate choreography id, implemented per world in M3 */
   seam:
     | "grid-rail"
@@ -44,7 +44,8 @@ export interface MotionSpec {
     | "crash-zoom"
     | "progress-mount"
     | "trampoline"
-    | "flashlight";
+    | "flashlight"
+    | "flare-sweep";
 }
 
 export interface WorldManifest {

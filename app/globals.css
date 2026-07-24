@@ -406,3 +406,59 @@ html[data-tier="lite"] #w-toy .chip{will-change:auto}
 #built .b-links a{color:#0A0A0A}
 #built .b-prov{font-family:var(--font-plex-mono),monospace;font-size:11px;line-height:2.1;color:#888;margin-top:28px}
 #built .b-prov a{color:#0A0A0A}
+
+/* ============ W·07 — WORLD OF THE MONTH: Y2K CHROME ============ */
+.chrome-txt{
+  background:linear-gradient(178deg,#fdfeff 12%,#b6bfca 38%,#59636f 50%,#eef2f6 62%,#9aa4b1 84%,#dfe5ec 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+/* — gate — */
+#s-y2k{background:radial-gradient(120% 140% at 50% -20%,#eef1f5 0%,#C9D0D9 45%,#9aa4b1 100%);color:#14171C;overflow:hidden}
+#s-y2k .s-kick{color:#0047FF;opacity:1;font-weight:600}
+#s-y2k h3{font-family:var(--font-michroma),sans-serif;font-size:clamp(26px,4.6vw,64px);line-height:1.22;letter-spacing:.06em;text-transform:uppercase;position:relative}
+#s-y2k .flare{position:absolute;top:0;bottom:0;width:120px;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.95) 50%,rgba(255,255,255,0) 100%);
+  filter:blur(6px);transform:translateX(-20vw) skewX(-12deg)}
+/* — world — */
+#w-y2k{background:linear-gradient(180deg,#dfe4ea 0%,#C9D0D9 40%,#aeb8c4 100%);color:#14171C;position:relative;overflow:hidden}
+#w-y2k .wtag{color:#0047FF;font-weight:600}
+#w-y2k h2{font-family:var(--font-michroma),sans-serif;font-size:clamp(34px,5.6vw,84px);line-height:1.12;letter-spacing:.03em;text-transform:uppercase;margin-top:26px}
+#w-y2k .lede{font-family:var(--font-inter),sans-serif;font-size:16px;line-height:1.7;color:#3c4450;max-width:640px;margin-top:26px}
+#w-y2k .lede b{color:#14171C}
+#w-y2k .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;position:relative;z-index:3}
+@media(max-width:960px){#w-y2k .caps{grid-template-columns:1fr}}
+#w-y2k .cap{border-radius:26px;padding:30px 28px;position:relative;
+  background:linear-gradient(175deg,rgba(255,255,255,.85),rgba(255,255,255,.35) 40%,rgba(255,255,255,.15));
+  border:1px solid rgba(255,255,255,.9);box-shadow:0 14px 34px rgba(20,23,28,.14), inset 0 1px 0 #fff}
+#w-y2k .cap .cn{font-family:var(--font-plex-mono),monospace;font-size:9.5px;letter-spacing:.22em;color:#0047FF;font-weight:600;margin-bottom:14px}
+#w-y2k .cap h4{font-family:var(--font-michroma),sans-serif;font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+#w-y2k .cap p{font-family:var(--font-inter),sans-serif;font-size:13.5px;line-height:1.65;color:#3c4450}
+#w-y2k .cap p b{color:#14171C}
+#w-y2k .cap a{color:#0047FF;font-weight:600}
+#w-y2k .specimen .card{border-radius:26px;padding:30px 32px;max-width:560px;
+  background:linear-gradient(175deg,rgba(255,255,255,.9),rgba(255,255,255,.4));
+  border:1px solid rgba(255,255,255,.9);box-shadow:0 14px 34px rgba(20,23,28,.16)}
+#w-y2k .specimen .bh{display:flex;justify-content:space-between;font-family:var(--font-plex-mono),monospace;font-size:10px;letter-spacing:.18em;color:#0047FF;font-weight:600;margin-bottom:14px}
+#w-y2k .specimen .ask{font-family:var(--font-michroma),sans-serif;font-size:20px;line-height:1.35;text-transform:uppercase;letter-spacing:.02em}
+#w-y2k .specimen .meta{margin-top:14px;font-family:var(--font-plex-mono),monospace;font-size:10px;line-height:2;color:#5b6470;letter-spacing:.06em}
+/* — signature: the chrome blob — */
+#w-y2k .y2k-blob{position:absolute;width:120px;height:120px;z-index:2;pointer-events:none;opacity:0;
+  background:radial-gradient(circle at 32% 28%,#ffffff 0%,#d9dfe6 22%,#8b95a2 48%,#59636f 62%,#c6cdd6 86%,#f2f5f8 100%);
+  border-radius:47% 53% 58% 42%/46% 44% 56% 54%;
+  box-shadow:0 18px 40px rgba(20,23,28,.28), inset 0 2px 6px rgba(255,255,255,.9);
+  animation:blobmorph 7s ease-in-out infinite alternate;transition:opacity .5s}
+#w-y2k .y2k-blob.on{opacity:1}
+@keyframes blobmorph{
+  0%{border-radius:47% 53% 58% 42%/46% 44% 56% 54%}
+  50%{border-radius:56% 44% 42% 58%/52% 58% 42% 48%}
+  100%{border-radius:42% 58% 52% 48%/58% 44% 56% 44%}
+}
+@media (prefers-reduced-motion:reduce){#w-y2k .y2k-blob{display:none}}
+/* — hero skin — */
+html[data-hero="y2k"] #hero{background:radial-gradient(130% 150% at 50% -30%,#eef1f5 0%,#C9D0D9 48%,#9aa4b1 100%);color:#14171C}
+html[data-hero="y2k"] .hx-tag{color:#0047FF;font-weight:600}
+html[data-hero="y2k"] .hx h1{font-family:var(--font-michroma),sans-serif;font-weight:400;font-size:clamp(30px,5.4vw,78px);letter-spacing:.04em;line-height:1.16;text-transform:uppercase}
+html[data-hero="y2k"] .hx h1 .l1,html[data-hero="y2k"] .hx h1 .l2{background:linear-gradient(178deg,#fdfeff 12%,#b6bfca 38%,#59636f 50%,#eef2f6 62%,#9aa4b1 84%,#dfe5ec 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+html[data-hero="y2k"] .hx-sub{color:#3c4450}
+html[data-hero="y2k"] .redeal{border-radius:999px;border:1px solid rgba(255,255,255,.9);
+  background:linear-gradient(175deg,rgba(255,255,255,.9),rgba(255,255,255,.35));box-shadow:0 10px 24px rgba(20,23,28,.18)}
+html[data-hero="y2k"] .redeal:hover{color:#0047FF}

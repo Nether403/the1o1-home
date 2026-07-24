@@ -113,9 +113,9 @@ export default function Interactions() {
             });
             if (meterline)
               meterline.innerHTML =
-                seen.size >= 6
+                seen.size >= WORLD_ORDER.length
                   ? "<b>101/101 — you’ve seen the range. Now bring the brief.</b>"
-                  : `Worlds seen: <b>${seen.size}/6</b> — keep walking.`;
+                  : `Worlds seen: <b>${seen.size}/${WORLD_ORDER.length}</b> — keep walking.`;
           }
         });
       },
@@ -179,7 +179,7 @@ export default function Interactions() {
       stack:
         "worlds are token manifests, not code forks.\neach register = fonts + palette + motion curves + cursor spec, applied at\nruntime. heavy modules (physics, shaders) lazy-load one world ahead.\nthis build: next.js 15 app router + typescript. M2 adds view-transition\nmorphs, M3 the gsap/lenis choreography, M4 rapier physics + font subsets.",
       worlds:
-        "w01 swiss international  — the origin, on the grid\nw02 la maison            — the services, in bodoni\nw03 brutalist            — the work, no decoration\nw04 terminal             — you are here\nw05 the toy box          — physics with manners\nw06 noir                 — the ask, under a flashlight",
+        "w01 swiss international  — the origin, on the grid\nw02 la maison            — the services, in bodoni\nw03 brutalist            — the work, no decoration\nw04 terminal             — you are here\nw05 the toy box          — physics with manners\nw06 noir                 — the ask, under a flashlight\nw07 y2k chrome           — world of the month, july 2026",
       brief:
         '# brief_001.yaml — the specimen (appearance 4/6)\nask:      "make it impossible to ignore."\nclient:   anyone_with_a_hard_problem\nscope:    [identity, web, motion]\nstyle:    undecided   # deliberately\nstandard: absolute',
       contact: "channel: martin@101dev.xyz\nsubject: the hard problem\nnote:    opening mail client…",

@@ -10,6 +10,7 @@ import Maison from "@/components/worlds/Maison";
 import Brut from "@/components/worlds/Brut";
 import Term from "@/components/worlds/Term";
 import Toy from "@/components/worlds/Toy";
+import Y2k from "@/components/worlds/Y2k";
 import Noir from "@/components/worlds/Noir";
 import End from "@/components/End";
 
@@ -30,6 +31,7 @@ export default function Page() {
       <Brut />
       <Term />
       <Toy />
+      <Y2k />
       <Noir />
       <End />
       <Interactions />

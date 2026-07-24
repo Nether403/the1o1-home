@@ -1,5 +1,5 @@
 {
-  "$comment": "Performance budgets — CI-enforced, gzip bytes. Failing any budget fails the build. Headroom is deliberate but finite; raising a budget requires a justification in the PR.",
+  "$comment": "Performance budgets \u2014 CI-enforced, gzip bytes. Failing any budget fails the build. Headroom is deliberate but finite; raising a budget requires a justification in the PR.",
   "firstLoadJsGzip": 250000,
   "cssGzip": 25000,
   "asyncChunkGzipDefault": 150000,
@@ -20,7 +20,8 @@
       "id=\"w-term\"",
       "id=\"w-toy\"",
       "id=\"w-noir\"",
-      "Skip to contact"
+      "Skip to contact",
+      "id=\"w-y2k\""
     ],
     "css": [
       "prefers-reduced-motion"
