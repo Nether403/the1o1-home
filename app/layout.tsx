@@ -13,6 +13,13 @@ export const metadata: Metadata = {
     description: "We don't have a style. We have a standard.",
     url: "https://the1o1.one",
     type: "website",
+    images: [{ url: "/og/deal", width: 1200, height: 630, alt: "the1o1.one — six worlds, one standard" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "the1o1.one — The House of Every Style",
+    description: "We don't have a style. We have a standard.",
+    images: ["/og/deal"],
   },
 };
 
