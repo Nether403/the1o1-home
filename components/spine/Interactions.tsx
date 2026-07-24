@@ -191,13 +191,18 @@ export default function Interactions() {
     const cliin = document.getElementById("cliin") as HTMLInputElement | null;
     const cliform = document.getElementById("cliform") as HTMLFormElement | null;
     const CMD: Record<string, string> = {
-      help: "  product     the product thesis\n  workflow    how evidence becomes a decision\n  guardrails  what Relay refuses to automate\n  evals       launch evaluation criteria\n  risks       what remains unresolved\n  contact     the project channel\n  clear       wipe the buffer",
-      product: "relay / rel_001\naudience: product teams making consequential roadmap decisions\npromise: turn scattered evidence into cited, reviewable product decisions\nstatus: fictional concept study — not a live product",
-      workflow: "01 ingest research, support themes, and product signals\n02 preserve source links and conflicting evidence\n03 generate a bounded recommendation with caveats\n04 require a named human reviewer to make the call\n05 record the decision and what would change it",
-      guardrails: "no recommendation without sources\nno hidden confidence as certainty\nno automatic roadmap mutation\nno decision without a human owner",
-      evals: "target: reviewers can trace every claim to evidence\ntarget: disagreement remains visible through review\ntarget: a decision records owner, rationale, and reversal criteria\nnote: targets are hypotheses, not achieved product results",
-      risks: "retrieval can omit minority evidence\nsummaries can flatten disagreement\nconfidence language can be over-trusted\nsource access can create privacy obligations\nall remain unresolved until tested with real teams",
-      contact: "channel: support@101dev.xyz\nnext: use the project form below or your own email client",
+      help: "  whoami     the person behind the worlds\n  services   what the consultancy does\n  stack      how this page holds seven design systems\n  worlds     list the registers on this scroll\n  brief      print specimen brief_001.yaml\n  contact    open a channel\n  redeal     re-deal the hero world\n  clear      wipe the buffer",
+      whoami:
+        "martin van deursen — designer / developer / independent researcher.\ntwo decades of enterprise systems, then the pivot to AI-native building.\nlocation: amsterdam, NL. one person. three modes. no random routes.",
+      services:
+        "design      identity, interaction, motion — any register, one standard\ndevelopment interfaces, engines, tools — typescript-first, production-honest\nresearch    independent AI-alignment inquiry — the practice that keeps the\n            other two honest\nterms       project / retainer / advisory — priced in conversation",
+      stack:
+        "worlds are coordinated by a shared registry, then authored by hand.\neach register = fonts + palette + motion curves + cursor spec, applied at\nruntime. heavy modules (physics, shaders) lazy-load one world ahead.\nthis build: next.js 15 + gsap/scrolltrigger + lenis + rapier (wasm).\nbudgets are enforced in CI; failing one fails the build.",
+      worlds:
+        "w01 swiss international  — the origin, on the grid\nw02 la maison            — the services, in bodoni\nw03 brutalist            — the work, no decoration\nw04 terminal             — you are here\nw05 the toy box          — physics with manners\ng01 y2k chrome           — guest register, july 2026\nw06 noir                 — the ask, under a flashlight",
+      brief:
+        '# brief_001.yaml — the specimen\nask:      "make it impossible to ignore."\nclient:   anyone_with_a_hard_problem\nscope:    [identity, web, motion]\nstyle:    undecided   # deliberately\nstandard: absolute',
+      contact: "channel: the inquiry form below, or martin@101dev.xyz\nsubject: the hard problem\nnote:    scrolling you there…",
     };
     const esc = (s: string) => s.replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" })[c] as string);
     if (cliin && cliout && cliform) {
@@ -210,7 +215,14 @@ export default function Interactions() {
           cliout.innerHTML = '<span class="dim">buffer wiped. try: help</span>';
           return;
         }
-        const out = CMD[v] ?? "command not found: " + v + "\ntry: help";
+        let out = CMD[v] ?? "command not found: " + v + "\ntry: help";
+        if (v === "redeal") {
+          out = "dealing…";
+          redeal();
+          scrollToEl(document.getElementById("hero"));
+        } else if (v === "contact") {
+          scrollToEl(document.getElementById("inquiry"));
+        }
         const pre = document.createElement("pre");
         pre.innerHTML = `<span class="p">$</span> <span class="c">${esc(v)}</span>\n${esc(out)}`;
         cliout.appendChild(pre);

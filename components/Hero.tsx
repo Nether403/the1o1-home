@@ -17,12 +17,12 @@ export default function Hero() {
   <div className="hx">
     <div className="hx-tag ea"><span>MARTIN VAN DEURSEN — DESIGN &amp; CONSULTANCY</span><span className="dealt" id="dealt">DEALT: —</span></div>
     <h1><span className="l1 ea">We don't have a style.</span><span className="l2 ea">We have a standard.</span></h1>
-    <p className="hx-sub ea">Independent design and engineering for ambitious product launches, difficult digital systems, and ideas that have not found their form yet. <b>The register changes; the judgment doesn't.</b></p>
-    <div className="hx-meta ea"><span>PRODUCT</span><span>DESIGN</span><span>ENGINEERING</span><span>NL — AMSTERDAM</span></div>
+    <p className="hx-sub ea">Every visit, this site deals you one of seven design worlds — typography, colour, motion, even the cursor. Scroll to walk all of them. The work changes register; <b>the standard doesn&apos;t.</b></p>
+    <div className="hx-meta ea"><span>DESIGN</span><span>DEVELOPMENT</span><span>RESEARCH</span><span>NL — AMSTERDAM</span></div>
     <div className="hx-actions ea">
-      <a className="hero-link primary" href="#proof">SEE THE EVIDENCE ↓</a>
-      <a className="hero-link" href="#walk">EXPLORE THE HOUSE →</a>
-      <button className="redeal" id="redeal">↻ REDEAL</button>
+      <button className="redeal" id="redeal">↻ REDEAL THE WORLD</button>
+      <a className="hero-link primary" href="#walk">WALK ALL SEVEN →</a>
+      <a className="hero-link" href="#proof">SEE THE WORK ↓</a>
     </div>
   </div>
   <div className="hero-cue"><span className="b"></span> THE WALK BEGINS ↓</div>

@@ -63,6 +63,8 @@ export interface WorldManifest {
     weight: number;
   };
   label: string; // e.g. "W·01 SWISS INTERNATIONAL"
+  /** Register name alone, for compact chrome like the Specimen header. */
+  shortName: string;
   sectionLabel: string; // e.g. "W·01 — SWISS / ORIGIN"
   gateLabel: string; // e.g. "ENTERING — W·01 SWISS"
   tokens: {

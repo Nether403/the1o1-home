@@ -66,15 +66,15 @@ export async function GET(
               textTransform: world === "maison" || world === "noir" ? "none" : "uppercase",
             }}
           >
-            {"Decision under review"}
+            {"Make it impossible"}
           </div>
           <div style={{ color: w.tokens.accent, fontSize: 92, fontWeight: 800, lineHeight: 1.02, fontStyle: italic ? "italic" : "normal" }}>
-            {"Evidence attached. Human owner required."}
+            {"to ignore."}
           </div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <div style={{ color: w.tokens.ink, opacity: 0.75, fontSize: 24, letterSpacing: 4 }}>
-            THE1O1.ONE — SIX CORE WORLDS · ONE ACTIVE GUEST · REL/001
+            THE1O1.ONE — ONE BRIEF · SEVEN WORLDS · ONE STANDARD
           </div>
           <div style={{ color: w.tokens.ink, opacity: 0.75, fontSize: 24, letterSpacing: 4 }}>{`?w=${w.id}`}</div>
         </div>

@@ -42,7 +42,7 @@ export const EVIDENCE: EvidenceRecord[] = [
     context: "Portfolio system and engineering proof",
     challenge: "Demonstrate visual range without fragmenting the experience or abandoning performance discipline.",
     role: "Product strategy, design systems, motion direction, and Next.js engineering.",
-    shipped: "Six permanent worlds, one active guest, shared navigation, progressive enhancement, and a public build dossier.",
+    shipped: "Six permanent worlds plus a monthly guest register, one shared spine, progressive enhancement, and a public build dossier.",
     evidenceLabel: "Read the build dossier",
     href: "/built",
   },

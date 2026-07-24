@@ -5,7 +5,7 @@ Date: 2026-07-24
 Build ID: `eS2UeCe_WTej3dG8N8een`
 
 This receipt records the local production verification for the proof-first
-Relay redesign. It is not a claim about an undeployed production environment.
+House of Every Style build. It is not a claim about an undeployed production environment.
 
 ## Commands
 
@@ -40,7 +40,7 @@ The Playwright suite verifies:
 - 320px overflow and mobile chapter navigation.
 - No-JavaScript hero and server-side inquiry validation.
 - Reduced-motion startup and runtime teardown.
-- Keyboard-operable Relay console and Toy evidence controls.
+- Keyboard-operable terminal and Toy chip controls.
 - Inquiry validation and preservation when delivery fails.
 - Initial font requests and transferred bytes.
 - Clean browser console during the primary flow.
