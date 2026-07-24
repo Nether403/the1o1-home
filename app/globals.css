@@ -349,3 +349,9 @@ html[data-m1-pending] .ea{opacity:0}
 @media (prefers-reduced-motion:reduce){
   ::view-transition-old(root),::view-transition-new(root){animation:none}
 }
+
+/* ============ M3 ADDENDUM — motion layer handshake ============ */
+/* When the GSAP layer mounts it owns entrances; CSS reveal stands down. */
+html[data-motion="gsap"]{scroll-behavior:auto}
+html[data-motion="gsap"] .ea{opacity:0;transition:none}
+html[data-motion="gsap"] #w-brut .marq .inner{animation:none}
