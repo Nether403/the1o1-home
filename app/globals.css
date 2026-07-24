@@ -341,3 +341,11 @@ html[data-m1-pending] .ea{opacity:0}
 @media (prefers-reduced-motion:reduce){#w-brut .marq .inner{animation:none}}
 /* View Transitions (M2 refines per-world choreography) */
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
+
+/* ============ M2 ADDENDUM — transition engine ============ */
+/* View Transitions fade (noir + fallback path). Duration set per WipeSpec. */
+::view-transition-old(root),
+::view-transition-new(root){animation-duration:var(--vt-dur,.5s);animation-timing-function:ease-in-out}
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+}

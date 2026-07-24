@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { WORLDS, WORLD_ORDER, type WorldId } from "@/worlds";
 import { pickNextWorld } from "@/lib/deal";
-import { swapWorld } from "@/lib/transitions";
+import { redealTo } from "@/lib/transitions";
 
 /**
  * M1 behavior layer — a faithful port of the v1 vanilla JS, minus the
@@ -40,9 +40,18 @@ export default function Interactions() {
     setBadge();
     const redeal = () => {
       const current = document.documentElement.getAttribute("data-hero") ?? "swiss";
-      swapWorld(pickNextWorld(current), () => {
+      const next = pickNextWorld(current) as WorldId;
+      void redealTo(next, () => {
         setBadge();
         setCursor(curWorld);
+        /* deep-link sync: the current deal is always shareable */
+        try {
+          const url = new URL(location.href);
+          url.searchParams.set("w", next);
+          history.replaceState(null, "", url);
+        } catch {
+          /* non-critical */
+        }
       });
     };
     const redealBtn = document.getElementById("redeal");
