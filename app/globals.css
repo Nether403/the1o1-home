@@ -373,3 +373,36 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid curre
 .skip-link:focus{top:12px}
 /* Lite tier: cheaper paint — no fixed heavy overlays beyond CSS statics */
 html[data-tier="lite"] #w-toy .chip{will-change:auto}
+
+/* ============ M6 — /built dossier (the void register) ============ */
+#built{background:#FAFAF8;color:#0A0A0A;min-height:100vh;font-family:var(--font-inter),sans-serif;padding:0 clamp(20px,8vw,140px) 120px}
+#built .b-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;border-bottom:1px solid #ddd;font-family:var(--font-plex-mono),monospace;font-size:10.5px;letter-spacing:.16em}
+#built .b-nav a{color:#0A0A0A;text-decoration:none}
+#built .b-nav a:hover{text-decoration:underline}
+#built .b-nav span{color:#999}
+@media(max-width:700px){#built .b-nav span{display:none}}
+#built .b-hero{padding:110px 0 30px}
+#built .b-kick{font-family:var(--font-plex-mono),monospace;font-size:10.5px;letter-spacing:.28em;color:#999;margin-bottom:34px}
+#built h1{font-weight:600;letter-spacing:-.04em;font-size:clamp(38px,6vw,86px);line-height:1.03}
+#built h1 span{color:#bbb}
+#built .b-lede{max-width:640px;color:#555;font-size:17px;line-height:1.7;margin-top:32px}
+#built section{max-width:760px;padding:44px 0 6px;border-top:1px solid #e5e5e0;margin-top:44px}
+#built h2{font-family:var(--font-plex-mono),monospace;font-size:12px;letter-spacing:.2em;color:#0A0A0A;margin-bottom:20px;text-transform:uppercase}
+#built p{color:#444;font-size:15.5px;line-height:1.75;margin-bottom:14px}
+#built em{font-style:normal;font-weight:600;color:#0A0A0A}
+#built code{font-family:var(--font-plex-mono),monospace;font-size:13px;background:#eeeee9;padding:2px 6px;border-radius:3px}
+#built .b-worlds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+@media(max-width:760px){#built .b-worlds{grid-template-columns:1fr}}
+#built .b-world{border:1px solid;border-radius:3px;padding:14px;display:flex;flex-direction:column;gap:6px}
+#built .b-world i{width:100%;height:34px;border-radius:2px;border:1px solid;display:block}
+#built .b-world b{font-family:var(--font-plex-mono),monospace;font-size:10.5px;letter-spacing:.12em}
+#built .b-world span{font-family:var(--font-plex-mono),monospace;font-size:9.5px;color:#888;letter-spacing:.06em}
+#built table{width:100%;border-collapse:collapse;margin:20px 0}
+#built th{text-align:left;font-family:var(--font-plex-mono),monospace;font-size:10px;letter-spacing:.16em;color:#999;padding:10px 12px;border-bottom:2px solid #0A0A0A;text-transform:uppercase}
+#built td{padding:11px 12px;border-bottom:1px solid #e5e5e0;font-size:14px;color:#444}
+#built td:first-child{color:#0A0A0A;font-weight:500}
+#built .b-links{list-style:none;margin:6px 0 22px}
+#built .b-links li{padding:8px 0;border-bottom:1px dashed #e5e5e0;font-size:14.5px;color:#444}
+#built .b-links a{color:#0A0A0A}
+#built .b-prov{font-family:var(--font-plex-mono),monospace;font-size:11px;line-height:2.1;color:#888;margin-top:28px}
+#built .b-prov a{color:#0A0A0A}
