@@ -1,0 +1,15 @@
+{
+  "name": "the1o1-home",
+  "version": "1.0.0",
+  "private": true,
+  "description": "the1o1.one — The House of Every Style",
+  "scripts": {
+    "start": "serve . -l ${PORT:-3000} --no-clipboard"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
