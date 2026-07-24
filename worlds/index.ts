@@ -1,7 +1,7 @@
 import type { WorldId, WorldManifest } from "./schema";
 
-const MONO = { family: "'IBM Plex Mono', ui-monospace, monospace", weights: [400, 500, 600] };
-const INTER = { family: "'Inter', sans-serif", weights: [400, 500, 600, 700] };
+const MONO = { family: "var(--font-plex-mono), ui-monospace, monospace", weights: [400, 500, 600] };
+const INTER = { family: "var(--font-inter), sans-serif", weights: [400, 500, 600, 700] };
 
 export const swiss: WorldManifest = {
   id: "swiss",
@@ -11,7 +11,7 @@ export const swiss: WorldManifest = {
   gateLabel: "ENTERING — W·01 SWISS",
   tokens: { bg: "#F4F3EF", ink: "#111111", accent: "#E30613", radius: "0px", borderWeight: "2px" },
   fonts: {
-    display: { family: "'Archivo', sans-serif", weights: [700] },
+    display: { family: "var(--font-archivo), sans-serif", weights: [700] },
     body: INTER,
     label: MONO,
   },
@@ -28,7 +28,7 @@ export const maison: WorldManifest = {
   gateLabel: "ENTERING — W·02 MAISON",
   tokens: { bg: "#14120F", ink: "#E8E1D5", accent: "#C7A96B", support: "#9B9284", radius: "0px", borderWeight: "1px" },
   fonts: {
-    display: { family: "'Bodoni Moda', serif", weights: [400, 500], italic: true },
+    display: { family: "var(--font-bodoni), serif", weights: [400, 500], italic: true },
     body: INTER,
     label: MONO,
   },
@@ -45,8 +45,8 @@ export const brut: WorldManifest = {
   gateLabel: "ENTERING — W·03 BRUT",
   tokens: { bg: "#FFE600", ink: "#000000", accent: "#FF3B30", radius: "0px", borderWeight: "4px" },
   fonts: {
-    display: { family: "'Archivo Black', sans-serif", weights: [400] },
-    body: { family: "'Archivo', sans-serif", weights: [400, 500, 600, 700] },
+    display: { family: "var(--font-archivo-black), sans-serif", weights: [400] },
+    body: { family: "var(--font-archivo), sans-serif", weights: [400, 500, 600, 700] },
     label: MONO,
   },
   cursor: { width: 20, height: 20, radius: "0", background: "#000000", border: "none" },
@@ -62,8 +62,8 @@ export const term: WorldManifest = {
   gateLabel: "ENTERING — W·04 TERMINAL",
   tokens: { bg: "#050805", ink: "#33FF66", accent: "#7ef0a0", support: "#2ea355", radius: "0px", borderWeight: "1px" },
   fonts: {
-    display: { family: "'IBM Plex Mono', monospace", weights: [500, 600] },
-    body: { family: "'IBM Plex Mono', monospace", weights: [400] },
+    display: { family: "var(--font-plex-mono), monospace", weights: [500, 600] },
+    body: { family: "var(--font-plex-mono), monospace", weights: [400] },
     label: MONO,
   },
   cursor: { width: 11, height: 20, radius: "0", background: "#33FF66", border: "none" },
@@ -79,7 +79,7 @@ export const toy: WorldManifest = {
   gateLabel: "ENTERING — W·05 TOY",
   tokens: { bg: "#E9F5FF", ink: "#1F3350", accent: "#FF6B9D", support: "#4DABF7", radius: "28px", borderWeight: "0px" },
   fonts: {
-    display: { family: "'Baloo 2', cursive", weights: [700, 800] },
+    display: { family: "var(--font-baloo), cursive", weights: [700, 800] },
     body: INTER,
     label: MONO,
   },
@@ -97,8 +97,8 @@ export const noir: WorldManifest = {
   gateLabel: "ENTERING — W·06 NOIR",
   tokens: { bg: "#07070A", ink: "#EDEDF2", accent: "#C1121F", support: "#9a9aa6", radius: "0px", borderWeight: "1px" },
   fonts: {
-    display: { family: "'Oswald', sans-serif", weights: [300, 400, 500, 600] },
-    body: { family: "'Playfair Display', serif", weights: [400, 500], italic: true },
+    display: { family: "var(--font-oswald), sans-serif", weights: [300, 400, 500, 600] },
+    body: { family: "var(--font-playfair), serif", weights: [400, 500], italic: true },
     label: MONO,
   },
   cursor: { width: 14, height: 14, radius: "50%", background: "#ffffff", border: "none" },

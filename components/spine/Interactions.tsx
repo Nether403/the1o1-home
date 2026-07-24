@@ -144,7 +144,7 @@ export default function Interactions() {
             hero.style.setProperty("--hy", e.clientY + "px");
           }
           const noir = document.getElementById("w-noir");
-          if (noir) {
+          if (noir && !(window as Window & { __noirFx?: boolean }).__noirFx) {
             const r = noir.getBoundingClientRect();
             if (r.top < innerHeight && r.bottom > 0) {
               const spot = noir.querySelector<HTMLElement>(".spot");
@@ -215,12 +215,14 @@ export default function Interactions() {
       }) as EventListener);
     }
 
-    /* ---------- toy chips: pointer springs (Rapier lands in M4) ---------- */
+    /* ---------- toy chips: pointer springs — universal fallback.
+       The M4 Rapier module takes ownership when it mounts (__toyPhys). ---------- */
     if (!reduce) {
       document.querySelectorAll<HTMLElement>("#w-toy .chip").forEach((ch) => {
         let dx = 0, dy = 0, sx = 0, sy = 0, vx = 0, vy = 0, raf = 0;
         let drag = false;
         on(ch, "pointerdown", ((e: PointerEvent) => {
+          if ((window as Window & { __toyPhys?: boolean }).__toyPhys) return;
           drag = true;
           sx = e.clientX - dx;
           sy = e.clientY - dy;
