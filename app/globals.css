@@ -409,8 +409,12 @@ html[data-tier="lite"] #w-toy .chip{will-change:auto}
 
 /* ============ W·07 — WORLD OF THE MONTH: Y2K CHROME ============ */
 .chrome-txt{
-  background:linear-gradient(178deg,#fdfeff 12%,#b6bfca 38%,#59636f 50%,#eef2f6 62%,#9aa4b1 84%,#dfe5ec 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+  /* dark liquid metal: mostly steel, one hot glint — reads on silver */
+  background:linear-gradient(178deg,
+    #f8fafc 0%,#8f99a5 14%,#3d4550 34%,#20262e 48%,
+    #c6cdd6 54%,#333b45 62%,#4c545f 80%,#20262e 92%,#9aa4b1 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 10px 22px rgba(20,23,28,.30))}
 /* — gate — */
 #s-y2k{background:radial-gradient(120% 140% at 50% -20%,#eef1f5 0%,#C9D0D9 45%,#9aa4b1 100%);color:#14171C;overflow:hidden}
 #s-y2k .s-kick{color:#0047FF;opacity:1;font-weight:600}
@@ -422,7 +426,7 @@ html[data-tier="lite"] #w-toy .chip{will-change:auto}
 #w-y2k{background:linear-gradient(180deg,#dfe4ea 0%,#C9D0D9 40%,#aeb8c4 100%);color:#14171C;position:relative;overflow:hidden}
 #w-y2k .wtag{color:#0047FF;font-weight:600}
 #w-y2k h2{font-family:var(--font-michroma),sans-serif;font-size:clamp(34px,5.6vw,84px);line-height:1.12;letter-spacing:.03em;text-transform:uppercase;margin-top:26px}
-#w-y2k .lede{font-family:var(--font-inter),sans-serif;font-size:16px;line-height:1.7;color:#3c4450;max-width:640px;margin-top:26px}
+#w-y2k .lede{font-family:var(--font-inter),sans-serif;font-size:16px;line-height:1.7;color:#272e38;max-width:640px;margin-top:26px}
 #w-y2k .lede b{color:#14171C}
 #w-y2k .caps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px;position:relative;z-index:3}
 @media(max-width:960px){#w-y2k .caps{grid-template-columns:1fr}}
@@ -431,7 +435,7 @@ html[data-tier="lite"] #w-toy .chip{will-change:auto}
   border:1px solid rgba(255,255,255,.9);box-shadow:0 14px 34px rgba(20,23,28,.14), inset 0 1px 0 #fff}
 #w-y2k .cap .cn{font-family:var(--font-plex-mono),monospace;font-size:9.5px;letter-spacing:.22em;color:#0047FF;font-weight:600;margin-bottom:14px}
 #w-y2k .cap h4{font-family:var(--font-michroma),sans-serif;font-size:15px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
-#w-y2k .cap p{font-family:var(--font-inter),sans-serif;font-size:13.5px;line-height:1.65;color:#3c4450}
+#w-y2k .cap p{font-family:var(--font-inter),sans-serif;font-size:13.5px;line-height:1.65;color:#333b45}
 #w-y2k .cap p b{color:#14171C}
 #w-y2k .cap a{color:#0047FF;font-weight:600}
 #w-y2k .specimen .card{border-radius:26px;padding:30px 32px;max-width:560px;
@@ -457,8 +461,13 @@ html[data-tier="lite"] #w-toy .chip{will-change:auto}
 html[data-hero="y2k"] #hero{background:radial-gradient(130% 150% at 50% -30%,#eef1f5 0%,#C9D0D9 48%,#9aa4b1 100%);color:#14171C}
 html[data-hero="y2k"] .hx-tag{color:#0047FF;font-weight:600}
 html[data-hero="y2k"] .hx h1{font-family:var(--font-michroma),sans-serif;font-weight:400;font-size:clamp(30px,5.4vw,78px);letter-spacing:.04em;line-height:1.16;text-transform:uppercase}
-html[data-hero="y2k"] .hx h1 .l1,html[data-hero="y2k"] .hx h1 .l2{background:linear-gradient(178deg,#fdfeff 12%,#b6bfca 38%,#59636f 50%,#eef2f6 62%,#9aa4b1 84%,#dfe5ec 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-html[data-hero="y2k"] .hx-sub{color:#3c4450}
+html[data-hero="y2k"] .hx h1 .l1,html[data-hero="y2k"] .hx h1 .l2{
+  background:linear-gradient(178deg,
+    #f8fafc 0%,#8f99a5 14%,#3d4550 34%,#20262e 48%,
+    #c6cdd6 54%,#333b45 62%,#4c545f 80%,#20262e 92%,#9aa4b1 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 1px 0 rgba(255,255,255,.75)) drop-shadow(0 10px 22px rgba(20,23,28,.30))}
+html[data-hero="y2k"] .hx-sub{color:#272e38}
 html[data-hero="y2k"] .redeal{border-radius:999px;border:1px solid rgba(255,255,255,.9);
   background:linear-gradient(175deg,rgba(255,255,255,.9),rgba(255,255,255,.35));box-shadow:0 10px 24px rgba(20,23,28,.18)}
 html[data-hero="y2k"] .redeal:hover{color:#0047FF}
