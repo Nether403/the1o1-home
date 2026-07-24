@@ -20,6 +20,7 @@ import End from "@/components/End";
 export default function Page() {
   return (
     <main>
+      <a className="skip-link" href="#w-noir">Skip to contact</a>
       <Chrome />
       <Nav />
       <Dial />

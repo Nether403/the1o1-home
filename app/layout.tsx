@@ -34,7 +34,7 @@ export const metadata: Metadata = {
  */
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning data-m1-pending="" className={fontVariables}>
+    <html lang="en" suppressHydrationWarning className={fontVariables}>
       <body>
         <Script id="the-deal" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: DEAL_SCRIPT }} />
         {children}

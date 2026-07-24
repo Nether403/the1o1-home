@@ -12,7 +12,7 @@
  * The step loop only runs while something is awake and the section is
  * on screen.
  */
-import RAPIER from "@dimforge/rapier2d-compat";
+import type RAPIER_NS from "@dimforge/rapier2d";
 
 declare global {
   interface Window {
@@ -29,7 +29,9 @@ export async function initToyPhysics(): Promise<() => void> {
   const section = document.getElementById("w-toy");
   if (!container || !section || chips.length === 0) return () => {};
 
-  await RAPIER.init();
+  /* wasm-asset build: the .wasm loads as part of this async chunk —
+     no init() call, no base64 inflation (M5 slim-down) */
+  const RAPIER: typeof RAPIER_NS = await import("@dimforge/rapier2d");
   window.__toyPhys = true;
 
   /* pit geometry from current layout */
@@ -49,7 +51,7 @@ export async function initToyPhysics(): Promise<() => void> {
 
   interface Chip {
     el: HTMLElement;
-    body: RAPIER.RigidBody;
+    body: RAPIER_NS.RigidBody;
     hw: number;
     hh: number;
     ox: number; // layout origin (center) in container space
