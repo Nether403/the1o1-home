@@ -2,6 +2,7 @@ import Chrome from "@/components/spine/Chrome";
 import Nav from "@/components/spine/Nav";
 import Dial from "@/components/spine/Dial";
 import Interactions from "@/components/spine/Interactions";
+import Motion from "@/components/spine/Motion";
 import Hero from "@/components/Hero";
 import Swiss from "@/components/worlds/Swiss";
 import Maison from "@/components/worlds/Maison";
@@ -30,6 +31,7 @@ export default function Page() {
       <Noir />
       <End />
       <Interactions />
+      <Motion />
     </main>
   );
 }

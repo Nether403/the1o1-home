@@ -17,6 +17,14 @@ export default function Interactions() {
   useEffect(() => {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const fine = matchMedia("(pointer: fine)").matches;
+    /* Smooth-scroll helper: prefer the Lenis instance mounted by the M3
+       motion layer; fall back to native scrolling. */
+    const scrollToEl = (el: Element | null) => {
+      if (!el) return;
+      const lenis = (window as Window & { __lenis?: { scrollTo: (t: Element, o?: object) => void } }).__lenis;
+      if (lenis && !reduce) lenis.scrollTo(el, { duration: 1.4 });
+      else el.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+    };
     const cleanups: Array<() => void> = [];
     const on = <K extends keyof WindowEventMap>(
       target: Window | Document | Element,
@@ -44,6 +52,8 @@ export default function Interactions() {
       void redealTo(next, () => {
         setBadge();
         setCursor(curWorld);
+        /* replay the hero entrance in the M3 motion layer */
+        window.dispatchEvent(new CustomEvent("the1o1:redealt"));
         /* deep-link sync: the current deal is always shareable */
         try {
           const url = new URL(location.href);
@@ -59,7 +69,7 @@ export default function Interactions() {
     const againBtn = document.getElementById("again");
     if (againBtn)
       on(againBtn, "click", () => {
-        document.getElementById("hero")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+        scrollToEl(document.getElementById("hero"));
         setTimeout(redeal, reduce ? 0 : 900);
       });
 
@@ -116,7 +126,7 @@ export default function Interactions() {
     dialBtns.forEach((b) =>
       on(b, "click", () => {
         const t = b.getAttribute("data-t");
-        if (t) document.querySelector(t)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+        if (t) scrollToEl(document.querySelector(t));
       })
     );
 
@@ -189,7 +199,7 @@ export default function Interactions() {
         if (v === "redeal") {
           out = "dealing…";
           redeal();
-          document.getElementById("hero")?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+          scrollToEl(document.getElementById("hero"));
         } else if (v === "contact") {
           out = CMD.contact;
           setTimeout(() => {
