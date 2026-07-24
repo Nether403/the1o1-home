@@ -28,7 +28,7 @@ export default function Toy() {
     <h4>Your walk so far</h4>
     <div className="bubbles" id="bubbles">
       <span className="bb" data-b="swiss">01</span><span className="bb" data-b="maison">02</span><span className="bb" data-b="brut">03</span>
-      <span className="bb" data-b="term">04</span><span className="bb" data-b="toy">05</span><span className="bb" data-b="noir">06</span>
+      <span className="bb" data-b="term">04</span><span className="bb" data-b="toy">05</span><span className="bb" data-b="noir">06</span><span className="bb" data-b="y2k">07</span>
     </div>
     <p id="meterline" aria-live="polite">Worlds seen: <b>0/6</b> — keep walking.</p>
   </div>
