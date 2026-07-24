@@ -1,0 +1,29 @@
+{
+  "$comment": "Performance budgets — CI-enforced, gzip bytes. Failing any budget fails the build. Headroom is deliberate but finite; raising a budget requires a justification in the PR.",
+  "firstLoadJsGzip": 250000,
+  "cssGzip": 25000,
+  "asyncChunkGzipDefault": 150000,
+  "asyncChunkGzipExceptions": {
+    "$comment": "physics = rapier2d wasm chunk (scroll-gated, one-world-ahead). Everything else obeys the default.",
+    "physics": 800000
+  },
+  "fontPreloadCountMax": 6,
+  "requiredStrings": {
+    "$comment": "reduced-motion / no-JS parity: these must exist in the prerendered HTML regardless of any script running.",
+    "html": [
+      "We don't have a style.",
+      "START A PROJECT",
+      "mailto:martin@101dev.xyz",
+      "id=\"w-swiss\"",
+      "id=\"w-maison\"",
+      "id=\"w-brut\"",
+      "id=\"w-term\"",
+      "id=\"w-toy\"",
+      "id=\"w-noir\"",
+      "Skip to contact"
+    ],
+    "css": [
+      "prefers-reduced-motion"
+    ]
+  }
+}

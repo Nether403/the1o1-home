@@ -30,7 +30,7 @@ export default function Toy() {
       <span className="bb" data-b="swiss">01</span><span className="bb" data-b="maison">02</span><span className="bb" data-b="brut">03</span>
       <span className="bb" data-b="term">04</span><span className="bb" data-b="toy">05</span><span className="bb" data-b="noir">06</span>
     </div>
-    <p id="meterline">Worlds seen: <b>0/6</b> — keep walking.</p>
+    <p id="meterline" aria-live="polite">Worlds seen: <b>0/6</b> — keep walking.</p>
   </div>
   <div className="specimen ea">
     <div className="spec-cap" style={{color:'#4DABF7'}}>THE SPECIMEN — APPEARANCE 5/6. HAVING FUN NOW.</div>

@@ -362,3 +362,14 @@ html[data-noirfx] #w-noir .grain{display:none}
 /* Rapier-owned chips: the physics module drives transforms directly. */
 html[data-noirfx] #w-noir .spot{transition:none}
 #w-toy .chip{will-change:transform}
+
+/* ============ M5 ADDENDUM — hardening ============ */
+/* Focus visibility across all worlds (accent-agnostic, always legible) */
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+/* Skip link: hidden until keyboard focus — the honest escape hatch */
+.skip-link{position:fixed;top:-100px;left:16px;z-index:600;background:#0A0A0A;color:#fff;
+  font-family:var(--font-plex-mono),monospace;font-size:11px;letter-spacing:.14em;padding:12px 18px;
+  text-decoration:none;transition:top .2s}
+.skip-link:focus{top:12px}
+/* Lite tier: cheaper paint — no fixed heavy overlays beyond CSS statics */
+html[data-tier="lite"] #w-toy .chip{will-change:auto}

@@ -10,10 +10,21 @@
 export const WORLD_IDS = ["swiss", "maison", "brut", "term", "toy", "noir"] as const;
 
 export const DEAL_SCRIPT = `(function(){
+  var d=document.documentElement;
   var W=${JSON.stringify(WORLD_IDS)};
   var w=W[Math.floor(Math.random()*W.length)];
   try{var q=new URLSearchParams(location.search).get('w');if(q&&W.indexOf(q)>-1)w=q;}catch(e){}
-  document.documentElement.setAttribute('data-hero',w);
+  d.setAttribute('data-hero',w);
+  /* reveal-pending is set here (JS-land) so a no-JS visit never hides
+     content — Interactions removes it on mount (M5 parity fix) */
+  d.setAttribute('data-m1-pending','');
+  /* device tier: lite = save-data, low memory/cores — heavy modules skip */
+  try{
+    var n=navigator;
+    if((n.connection&&n.connection.saveData)||(n.deviceMemory&&n.deviceMemory<4)||(n.hardwareConcurrency&&n.hardwareConcurrency<4)){
+      d.setAttribute('data-tier','lite');
+    }
+  }catch(e){}
 })();`;
 
 export function pickNextWorld(current: string): string {

@@ -15,6 +15,9 @@ import { useEffect } from "react";
 export default function Modules() {
   useEffect(() => {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    /* M5 device-tier gate: lite devices keep the CSS treatments and the
+       spring fallback — no WASM, no canvas loops */
+    if (document.documentElement.getAttribute("data-tier") === "lite") return;
 
     let alive = true;
     const cleanups: Array<() => void> = [];
