@@ -2,11 +2,16 @@
   "name": "the1o1-home",
   "version": "2.0.0-m1",
   "private": true,
-  "description": "the1o1.one — The House of Every Style (Next.js port, M1)",
+  "description": "the1o1.one — a proof-first design and product engineering portfolio",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test:budgets": "node ci/check-budgets.mjs",
+    "test": "npm run typecheck && npm run test:unit"
   },
   "dependencies": {
     "@dimforge/rapier2d": "^0.19.3",
@@ -14,15 +19,30 @@
     "lenis": "^1.3.25",
     "next": "^15.3.4",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "resend": "^6.18.0",
+    "sharp": "0.35.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
     "@types/node": "^22.15.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^4.1.6"
   },
   "engines": {
     "node": ">=20"
+  },
+  "browserslist": [
+    "chrome 111",
+    "edge 111",
+    "firefox 111",
+    "safari 16.4"
+  ],
+  "overrides": {
+    "postcss": "8.5.22",
+    "sharp": "$sharp"
   }
 }

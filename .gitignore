@@ -4,3 +4,11 @@ out/
 .DS_Store
 *.tsbuildinfo
 next-env.d.ts.bak
+.env
+.env.local
+.env.*.local
+!.env.example
+test-results/
+playwright-report/
+.playwright-mcp/
+.opencode/

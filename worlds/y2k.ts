@@ -1,18 +1,24 @@
 import type { WorldManifest } from "./schema";
 
 /**
- * W·07 — WORLD OF THE MONTH №1 (July 2026): Y2K CHROME
+ * G·01 — WORLD OF THE MONTH №1 (July 2026): Y2K CHROME
  *
  * The future, as remembered. Liquid metal, capsule UI, Eurostile-class
  * type (Michroma), one lens flare — earned ironically. Proof that the
- * roster is extensible: this entire world is a data PR.
+ * roster is extensible through a shared registry and an authored chapter.
  */
 export const y2k: WorldManifest = {
   id: "y2k",
-  index: 7,
-  label: "W·07 Y2K CHROME",
-  sectionLabel: "W·07 — WORLD OF THE MONTH",
-  gateLabel: "LOADING — WORLD_07: Y2K CHROME",
+  kind: "guest",
+  displayCode: "G·01",
+  walkPosition: 6,
+  sectionId: "w-y2k",
+  dealEligible: true,
+  meterEligible: true,
+  featured: { from: "2026-07-01T00:00:00Z", until: "2026-08-01T00:00:00Z", weight: 0.3 },
+  label: "G·01 Y2K CHROME",
+  sectionLabel: "G·01 — RELAY / ROLLOUT CONSOLE",
+  gateLabel: "RELAY — CHAPTER 06 / ROLLOUT CONSOLE",
   tokens: {
     bg: "#C9D0D9",
     ink: "#14171C",

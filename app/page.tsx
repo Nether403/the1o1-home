@@ -13,30 +13,38 @@ import Toy from "@/components/worlds/Toy";
 import Y2k from "@/components/worlds/Y2k";
 import Noir from "@/components/worlds/Noir";
 import End from "@/components/End";
+import ProofPath from "@/components/proof/ProofPath";
+import WalkIntro from "@/components/walk/WalkIntro";
+import InquirySection from "@/components/inquiry/InquirySection";
 
 /**
- * THE WALK — one semantic spine, six worlds, designed seams.
+ * THE WALK — one product argument across six core worlds and one guest.
  * Sections are server-rendered; all behavior mounts once via <Interactions/>.
  */
 export default function Page() {
   return (
-    <main>
-      <a className="skip-link" href="#w-noir">Skip to contact</a>
+    <>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <Chrome />
       <Nav />
       <Dial />
-      <Hero />
-      <Swiss />
-      <Maison />
-      <Brut />
-      <Term />
-      <Toy />
-      <Y2k />
-      <Noir />
+      <main id="main-content">
+        <Hero />
+        <ProofPath />
+        <WalkIntro />
+        <Swiss />
+        <Maison />
+        <Brut />
+        <Term />
+        <Toy />
+        <Y2k />
+        <Noir />
+        <InquirySection />
+      </main>
       <End />
       <Interactions />
       <Motion />
       <Modules />
-    </main>
+    </>
   );
 }

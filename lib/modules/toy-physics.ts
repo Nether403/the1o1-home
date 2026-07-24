@@ -160,15 +160,25 @@ export async function initToyPhysics(): Promise<() => void> {
       c.body.setAngvel(c.vx * 0.002, true);
       wake();
     };
+    const toss = (event: Event) => {
+      const detail = (event as CustomEvent<{ x: number; y: number }>).detail;
+      c.dragging = false;
+      c.body.setBodyType(RAPIER.RigidBodyType.Dynamic, true);
+      c.body.setLinvel({ x: detail.x, y: detail.y }, true);
+      c.body.setAngvel(detail.x * 0.002, true);
+      wake();
+    };
     c.el.addEventListener("pointerdown", down);
     c.el.addEventListener("pointermove", move);
     c.el.addEventListener("pointerup", up);
     c.el.addEventListener("pointercancel", up);
+    c.el.addEventListener("the1o1:toy-toss", toss);
     removers.push(() => {
       c.el.removeEventListener("pointerdown", down);
       c.el.removeEventListener("pointermove", move);
       c.el.removeEventListener("pointerup", up);
       c.el.removeEventListener("pointercancel", up);
+      c.el.removeEventListener("the1o1:toy-toss", toss);
     });
   });
 

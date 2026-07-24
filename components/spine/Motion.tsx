@@ -8,14 +8,30 @@ import { useEffect } from "react";
  */
 export default function Motion() {
   useEffect(() => {
+    const preference = matchMedia("(prefers-reduced-motion: reduce)");
     let alive = true;
+    let loading = false;
     let cleanup: (() => void) | undefined;
-    import("@/lib/motion").then((m) => {
-      if (alive) cleanup = m.initMotion();
-      else return;
-    });
+    const sync = () => {
+      if (preference.matches) {
+        cleanup?.();
+        cleanup = undefined;
+        return;
+      }
+      if (cleanup || loading) return;
+      loading = true;
+      import("@/lib/motion")
+        .then((m) => {
+          if (alive && !preference.matches) cleanup = m.initMotion();
+        })
+        .catch(() => document.documentElement.removeAttribute("data-motion"))
+        .finally(() => { loading = false; });
+    };
+    preference.addEventListener("change", sync);
+    sync();
     return () => {
       alive = false;
+      preference.removeEventListener("change", sync);
       cleanup?.();
     };
   }, []);

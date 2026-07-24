@@ -32,7 +32,10 @@ export async function redealTo(next: WorldId, apply: () => void): Promise<void> 
   try {
     const w = WORLDS[next];
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let applied = false;
     const swap = () => {
+      if (applied) return;
+      applied = true;
       document.documentElement.setAttribute("data-hero", next);
       apply();
     };
@@ -40,9 +43,15 @@ export async function redealTo(next: WorldId, apply: () => void): Promise<void> 
       swap();
       return;
     }
-    if (w.wipe.kind === "fade") await fadeSwap(swap, w.wipe.duration);
-    else await columnsSwap(swap, next);
+    try {
+      if (w.wipe.kind === "fade") await fadeSwap(swap, w.wipe.duration);
+      else await columnsSwap(swap, next);
+    } catch {
+      swap();
+    }
   } finally {
+    document.getElementById("wipe")?.style.setProperty("visibility", "hidden");
+    document.getElementById("fade")?.style.setProperty("visibility", "hidden");
     dealing = false;
   }
 }
@@ -62,7 +71,7 @@ async function fadeSwap(swap: () => void, duration: number): Promise<void> {
     return;
   }
   const fade = document.getElementById("fade");
-  if (!fade) return swap();
+  if (!fade || typeof fade.animate !== "function") return swap();
   fade.style.visibility = "visible";
   await fade.animate([{ opacity: 0 }, { opacity: 1 }], {
     duration: duration * 1000,
@@ -83,7 +92,7 @@ async function columnsSwap(swap: () => void, next: WorldId): Promise<void> {
   const w = WORLDS[next];
   const wipe = document.getElementById("wipe");
   const cols = wipe ? Array.from(wipe.querySelectorAll<HTMLElement>(".col")) : [];
-  if (!wipe || cols.length === 0) return swap();
+  if (!wipe || cols.length === 0 || cols.some((col) => typeof col.animate !== "function")) return swap();
 
   const { duration, stagger, from } = w.wipe;
   const easing = easeToCss(w.wipe.ease);

@@ -1,56 +1,87 @@
-# the1o1.one — The House of Every Style
+# the1o1.one
 
 > We don't have a style. We have a standard.
 
-The shapeshifting homepage for **Martin van Deursen — design & consultancy**.
-One set of content, six fully-committed design worlds. The metamorphosis is the portfolio.
+A proof-first portfolio for Martin van Deursen, aimed at founders and product
+leaders working through uncertain launches and difficult digital systems.
 
-## Concept
+## Experience
 
-- **The Deal** — every visit deals one of six worlds as the hero, seeded pre-paint (no flash). Deep-linkable: `?w=swiss|maison|brut|term|toy|noir`. `↻ REDEAL` re-renders the hero with a wipe whose personality matches the destination world.
-- **The Walk** — scrolling crosses all six worlds through designed seam gates (grid-rail ride, gold thread, crash-zoom + hazard strips, scroll-driven loading bar, trampoline letters, flashlight sweep).
-- **The Dial** — right-edge world switcher; nav label and cursor morph per world.
-- **The Constant** — nav + `START A PROJECT` CTA and the semantic DOM never change between worlds. The conversion spine is style-independent.
-- **The Specimen** — one brief ("Make it impossible to ignore.") re-set in every world. Same words, six worlds, one standard.
-- **101/101 meter** — visit all six worlds and the toy-world tracker completes.
+- **The evidence room** presents only public, inspectable practice artifacts.
+  Anonymized client records are added only when their context and evidence are
+  approved for publication.
+- **The Deal** chooses a hero register before paint and supports shareable
+  `?w=swiss|maison|brut|term|toy|y2k|noir` links.
+- **The Relay walk** carries one explicitly fictional AI-native product concept
+  through six permanent worlds and one active guest.
+- **The inquiry** submits through a server-side transactional-email action and
+  always provides `support@101dev.xyz` as a direct fallback. Submissions are not
+  stored in an application database.
+- **The dossier** at `/built` documents the architecture and measured budgets.
 
-## Worlds
+## World Model
 
-| # | World | Register | Signature |
-|---|-------|----------|-----------|
-| 01 | Swiss International | Müller-Brockmann grid | Scroll-drawn gridlines, pinned horizontal practices |
-| 02 | La Maison | Bodoni luxury | Cursor-tracked gold sheen, dark lift |
-| 03 | Brutalist | Raw web | Velocity-skewed marquee, slam entrances |
-| 04 | Terminal | Phosphor CLI | A real shell: `help`, `whoami`, `services`, `stack`, `brief`, `redeal` |
-| 05 | Toy Box | Candy physics | Spring-drag chips, worlds-seen meter |
-| 06 | Noir | Letterboxed cinema | Flashlight cursor, scroll-closing bars |
+| Walk | Identity | Register | Relay responsibility |
+|---:|---|---|---|
+| 01 | W.01 | Swiss International | The product bet |
+| 02 | W.02 | La Maison | Position and trust |
+| 03 | W.03 | Brutalist | Launch proposition |
+| 04 | W.04 | Terminal | AI system and guardrails |
+| 05 | W.05 | Toy Box | First-run experience |
+| 06 | G.01 | Y2K Chrome | Active guest / rollout console |
+| 07 | W.06 | Noir | Release decision |
 
-## Stack (this build)
+World metadata is server-safe and shared by navigation, transitions, sharing,
+and tests. Each chapter remains deliberately authored in React, CSS, and an
+optional motion or interaction module.
 
-Single-file static build: semantic HTML + CSS + vanilla JS, with
-[GSAP 3.12](https://gsap.com) + ScrollTrigger and [Lenis](https://lenis.darkroom.engineering/) via CDN.
-Google Fonts: Archivo (+Black), Bodoni Moda, IBM Plex Mono, Baloo 2, Oswald, Playfair Display, Inter.
+## Stack
 
-- No build step. Deploy `index.html` anywhere static (Vercel, Netlify, Pages).
-- Full `prefers-reduced-motion` fallback (all content, zero morphs).
-- No tracking.
+- Next.js 15 App Router, React 19, and TypeScript
+- GSAP, ScrollTrigger, and Lenis as an optional post-hydration motion layer
+- Rapier 2D as scroll-gated WebAssembly with a keyboard/pointer spring fallback
+- Resend for server-side inquiry delivery
+- Vitest, Playwright, and axe-core for unit, browser, no-JS, reduced-motion,
+  responsive, and accessibility verification
 
-## Deploying
+## Local Development
 
-1. Point the `the1o1.one` apex at this repo's hosting (e.g. Vercel project → add domain).
-2. That's it — one file.
+```bash
+npm ci
+npm run dev
+```
 
-## Roadmap (production port)
+Copy `.env.example` to `.env.local` to test inquiry delivery. Use a Resend API
+key and an `INQUIRY_FROM` address on a verified sending domain. Never expose the
+API key to client code.
 
-Planned per the approved Proposal 003 ("The House of Every Style"):
+## Verification
 
-- Next.js 15 port — worlds as **token manifests** (data, not code forks)
-- View Transitions API world morphs; per-world lazy modules
-- Rapier physics for the Toy world; WebGPU/TSL where a world earns it
-- Per-world font subsetting; CI-enforced perf budgets
-- **World of the Month** — a rotating seventh register
+```bash
+npm run typecheck
+npm run test:unit
+npm run build
+npm run test:e2e
+node ci/check-budgets.mjs
+npm audit --audit-level=high
+```
+
+The browser suite runs against `next start`, not the development server.
+The latest local verification evidence is recorded in `VERIFICATION.md`.
+
+## Deployment
+
+Deploy the Next.js application to a Node-compatible host. Configure:
+
+```text
+RESEND_API_KEY
+INQUIRY_FROM
+INQUIRY_TO=support@101dev.xyz
+```
+
+The previous root-level single-file build has been removed; this Next.js app is
+the only canonical production artifact.
 
 ---
 
-© 2026 Martin van Deursen — Design / Development / Research · [martin@101dev.xyz](mailto:martin@101dev.xyz)
-Built with Nexus (draft reviewed and shipped by Martin).
+Copyright 2026 Martin van Deursen. No tracking beyond your own curiosity.

@@ -10,7 +10,7 @@ export function termMotion(): void {
         const p = document.querySelector<HTMLElement>("#s-term .pct");
         if (p)
           p.textContent =
-            "MOUNTING /house-of-every-style … " +
+            "MOUNTING /relay/evidence-engine … " +
             Math.round(self.progress * 100) + "%" +
             (self.progress > 0.99 ? " — OK" : "");
       },

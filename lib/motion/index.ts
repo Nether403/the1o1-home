@@ -34,47 +34,52 @@ export function initMotion(): () => void {
   }
 
   gsap.registerPlugin(ScrollTrigger);
-  document.documentElement.setAttribute("data-motion", "gsap");
-
-  /* Lenis ↔ ScrollTrigger — the canonical wiring */
-  const lenis = new Lenis({ duration: 1.15 });
-  window.__lenis = lenis;
-  lenis.on("scroll", ScrollTrigger.update);
-  const raf = (time: number) => lenis.raf(time * 1000);
-  gsap.ticker.add(raf);
-  gsap.ticker.lagSmoothing(0);
-
-  const mm = gsap.matchMedia();
+  let lenis: Lenis | undefined;
+  let mm: gsap.MatchMedia | undefined;
+  let ctx: gsap.Context | undefined;
   const extraCleanups: Array<() => void> = [];
-  const ctx = gsap.context(() => {
-    heroMotion();
-    swissMotion(mm);
-    maisonMotion();
-    const brutCleanup = brutMotion();
-    if (brutCleanup) extraCleanups.push(brutCleanup);
-    termMotion();
-    toyMotion();
-    const y2kCleanup = y2kMotion();
-    if (y2kCleanup) extraCleanups.push(y2kCleanup);
-    noirMotion();
-    endMotion();
-  });
-
-  /* hero entrance now + on every redeal */
+  const raf = (time: number) => lenis?.raf(time * 1000);
   const onRedealt = () => heroIn();
-  window.addEventListener("the1o1:redealt", onRedealt);
-  heroIn();
-
-  requestAnimationFrame(() => ScrollTrigger.refresh());
-
-  return () => {
+  const cleanup = () => {
     window.removeEventListener("the1o1:redealt", onRedealt);
     extraCleanups.forEach((fn) => fn());
-    mm.revert();
-    ctx.revert();
+    mm?.revert();
+    ctx?.revert();
     gsap.ticker.remove(raf);
-    lenis.destroy();
+    lenis?.destroy();
     window.__lenis = undefined;
     document.documentElement.removeAttribute("data-motion");
   };
+
+  try {
+    document.documentElement.setAttribute("data-motion", "gsap");
+    lenis = new Lenis({ duration: 1.15 });
+    window.__lenis = lenis;
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add(raf);
+    gsap.ticker.lagSmoothing(0);
+
+    mm = gsap.matchMedia();
+    ctx = gsap.context(() => {
+      heroMotion();
+      swissMotion(mm!);
+      maisonMotion();
+      const brutCleanup = brutMotion();
+      if (brutCleanup) extraCleanups.push(brutCleanup);
+      termMotion();
+      toyMotion();
+      const y2kCleanup = y2kMotion();
+      if (y2kCleanup) extraCleanups.push(y2kCleanup);
+      noirMotion();
+      endMotion();
+    });
+
+    window.addEventListener("the1o1:redealt", onRedealt);
+    heroIn();
+    requestAnimationFrame(() => ScrollTrigger.refresh());
+    return cleanup;
+  } catch (error) {
+    cleanup();
+    throw error;
+  }
 }

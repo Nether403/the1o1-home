@@ -1,9 +1,8 @@
 /**
  * The House of Every Style — world manifest schema.
  *
- * A world is DATA, not a code fork. Everything that makes a register
- * distinct — tokens, type pairing, motion personality, cursor, redeal
- * wipe — lives in its manifest. Adding "World of the Month" is a data PR.
+ * Server-safe metadata shared by navigation, transitions, sharing, and CI.
+ * Section components and optional client modules live in separate registries.
  */
 
 export type WorldId = "swiss" | "maison" | "brut" | "term" | "toy" | "noir" | "y2k";
@@ -50,8 +49,19 @@ export interface MotionSpec {
 
 export interface WorldManifest {
   id: WorldId;
-  /** Order on The Walk */
-  index: number;
+  kind: "core" | "guest";
+  /** Stable public identity, independent of where the world appears. */
+  displayCode: string;
+  /** Current position on The Walk. */
+  walkPosition: number;
+  sectionId: `w-${WorldId}`;
+  dealEligible: boolean;
+  meterEligible: boolean;
+  featured?: {
+    from: string;
+    until: string;
+    weight: number;
+  };
   label: string; // e.g. "W·01 SWISS INTERNATIONAL"
   sectionLabel: string; // e.g. "W·01 — SWISS / ORIGIN"
   gateLabel: string; // e.g. "ENTERING — W·01 SWISS"
@@ -72,9 +82,4 @@ export interface WorldManifest {
   cursor: CursorSpec;
   wipe: WipeSpec;
   motion: MotionSpec;
-  /**
-   * Heavy per-world behavior (physics, shaders) — lazy-loaded one world
-   * ahead of the scroll. Wired in M4.
-   */
-  module?: () => Promise<unknown>;
 }

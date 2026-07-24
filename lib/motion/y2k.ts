@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-/** W·07 Y2K Chrome — the lens flare sweeps the gate on scroll; capsules
+/** G·01 Y2K Chrome — the lens flare sweeps the gate on scroll; capsules
  *  rise with a gleam; the chrome blob tails the cursor like it's 1999. */
 export function y2kMotion(): (() => void) | void {
   /* seam gate: flare sweep + title settle */

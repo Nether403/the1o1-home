@@ -1,8 +1,8 @@
 # World of the Month — the sequel machine
 
-> The roster is extensible by design: a world is a data manifest + one section
-> + one seam gate + one OG card. Launch proved six; the machine ships the seventh,
-> then the eighth, forever. Range as a subscription.
+> The roster is extensible by design: server-safe metadata coordinates an
+> authored section, seam gate, optional motion/module, tests, and OG card.
+> Six core worlds remain permanent; G.01 is the active guest.
 
 ## Why
 
@@ -13,11 +13,11 @@
 ## The process (repeatable, ~2–4 days per world)
 
 1. **Pick the register** — from the candidate bench below, or a client-industry register worth courting.
-2. **Manifest first** (`worlds/<id>.ts`) — tokens, font pair (add to `lib/fonts.ts`, latin subset, `preload: false`), cursor, wipe personality, motion spec. The manifest IS the design brief.
+2. **Registry first** (`worlds/<id>.ts`) — identity, walk position, tokens, font pair, cursor, wipe personality, and motion spec. The chapter still requires authored implementation.
 3. **Section + seam gate** — one content section in the register + one designed intermission. The Specimen gets re-dressed (appearance N/N).
 4. **Motion factory** (`lib/motion/<id>.ts`) — entrance choreography + one signature interactive moment. One moment, tightly scoped — the M-series discipline holds.
 5. **OG card** — `/og/<id>` follows automatically from tokens; check it renders.
-6. **Wire the walk** — add to `WORLD_ORDER`, dial, meter (bubbles count adjusts), deal pool. Decide: does WOTM join the random deal, or stay a scroll-end guest exhibit? (Recommend: joins the deal — the surprise is the point.)
+6. **Wire the walk** — register one guest and let the derived order drive the dial, meter, and deal pool. The guest keeps a G-series identity independent of its walk position.
 7. **Budget gate** — CI must stay green. A world that can't fit the budget doesn't ship that month.
 8. **Devlog entry** — 300–500 words on `/built`: what the register demanded, what it cost, one trick.
 
@@ -25,7 +25,6 @@
 
 | Register | One-line direction | Signature moment idea |
 |---|---|---|
-| **Y2K chrome** | Liquid metal, lens flares earned ironically, Eurostile | Chrome blob follows cursor, reflects the page |
 | **Newsprint** | 1940s broadsheet: columns, rules, halftone photos | Headline letterpress "ink spread" on hover |
 | **Bauhaus poster** | Primary shapes, diagonal composition, Universal type | Shapes reflow into the layout grid as you scroll |
 | **Blueprint** | Cyanotype ground, white technical linework, dimensions | Elements draw themselves with measurement callouts |

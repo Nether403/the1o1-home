@@ -5,11 +5,10 @@
  * origin, size-adjusted fallback metrics generated per face (CLS guard),
  * zero third-party requests.
  *
- * Preload strategy: the two SPINE faces (Inter, IBM Plex Mono) appear in
- * every world from first paint, so they preload. World display faces
- * can't be statically predicted (THE DEAL randomizes the hero), so they
- * load on demand with `display: swap` — the semantic content is never
- * blocked on a display face.
+ * Preload strategy: no explicit font preloads. The opening register is
+ * randomized, so every face uses `display: swap` and is discovered through
+ * actual CSS usage. Browser tests measure requests; `preload: false` is not
+ * described as viewport-based lazy loading.
  */
 import {
   Archivo,
@@ -23,22 +22,22 @@ import {
   Playfair_Display,
 } from "next/font/google";
 
-/* — spine faces: preloaded — */
+/* — spine faces — */
 export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 export const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-plex-mono",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
-/* — world display faces: on-demand, swap — */
+/* — world display faces — */
 export const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",

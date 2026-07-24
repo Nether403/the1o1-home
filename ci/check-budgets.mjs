@@ -14,7 +14,7 @@
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { gzipSync } from "node:zlib";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 
 const budgets = JSON.parse(readFileSync("ci/budgets.json", "utf8"));
 const NEXT = ".next";
@@ -23,12 +23,19 @@ const report = [];
 
 const gz = (p) => gzipSync(readFileSync(p)).length;
 const kb = (n) => (n / 1024).toFixed(1) + "KB";
+const filesUnder = (dir) => existsSync(dir)
+  ? readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const path = join(dir, entry.name);
+      return entry.isDirectory() ? filesUnder(path) : [path];
+    })
+  : [];
 
 /* ---------- 1. first-load JS for / ---------- */
 const buildManifest = JSON.parse(readFileSync(join(NEXT, "build-manifest.json"), "utf8"));
 const appBuildManifest = JSON.parse(readFileSync(join(NEXT, "app-build-manifest.json"), "utf8"));
 const firstLoadFiles = new Set([
   ...(buildManifest.rootMainFiles ?? []),
+  ...(appBuildManifest.pages?.["/layout"] ?? []).filter((f) => f.endsWith(".js")),
   ...(appBuildManifest.pages?.["/page"] ?? []).filter((f) => f.endsWith(".js")),
 ]);
 let firstLoad = 0;
@@ -49,10 +56,11 @@ if (cssTotal > budgets.cssGzip) failures.push(`css ${kb(cssTotal)} exceeds ${kb(
 /* ---------- 3. async chunks ---------- */
 const chunkDir = join(NEXT, "static", "chunks");
 const firstLoadNames = new Set([...firstLoadFiles].map((f) => f.split("/").pop()));
-for (const f of readdirSync(chunkDir)) {
-  if (!f.endsWith(".js") || firstLoadNames.has(f)) continue;
-  const size = gz(join(chunkDir, f));
-  const raw = readFileSync(join(chunkDir, f), "utf8");
+for (const path of filesUnder(chunkDir)) {
+  const f = relative(chunkDir, path);
+  if (!f.endsWith(".js") || firstLoadNames.has(f.split(/[\\/]/).pop())) continue;
+  const size = gz(path);
+  const raw = readFileSync(path, "utf8");
   const isPhysics = raw.includes("RigidBody") || raw.includes("rapier");
   const budget = isPhysics ? budgets.asyncChunkGzipExceptions.physics : budgets.asyncChunkGzipDefault;
   const tag = isPhysics ? " [physics-exception]" : "";
@@ -60,7 +68,16 @@ for (const f of readdirSync(chunkDir)) {
   if (size > budget) failures.push(`async chunk ${f} ${kb(size)} exceeds ${kb(budget)}${tag}`);
 }
 
-/* ---------- 4 + 5. prerendered HTML checks ---------- */
+/* ---------- 4. client WebAssembly ---------- */
+const wasmFiles = filesUnder(join(NEXT, "static", "wasm")).filter((path) => path.endsWith(".wasm"));
+if (wasmFiles.length === 0) failures.push("client WASM asset missing — physics budget cannot be verified");
+for (const path of wasmFiles) {
+  const size = gz(path);
+  report.push(`client WASM ${relative(NEXT, path)}: ${kb(size)} / ${kb(budgets.clientWasmGzip)}`);
+  if (size > budgets.clientWasmGzip) failures.push(`client WASM ${kb(size)} exceeds ${kb(budgets.clientWasmGzip)}`);
+}
+
+/* ---------- 5 + 6. prerendered HTML checks ---------- */
 const htmlPath = join(NEXT, "server", "app", "index.html");
 if (existsSync(htmlPath)) {
   const html = readFileSync(htmlPath, "utf8");
