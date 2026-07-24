@@ -1,5 +1,8 @@
 # the1o1.one — The House of Every Style
 
+<img width="1451" height="397" alt="image" src="https://github.com/user-attachments/assets/49485039-a3b2-4c96-8a25-ce9ff6ee9d5d" />
+
+
 > We don't have a style. We have a standard.
 
 The shapeshifting homepage for **Martin van Deursen — design & consultancy**.
