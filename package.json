@@ -1,13 +1,23 @@
 {
   "name": "the1o1-home",
-  "version": "1.0.0",
+  "version": "2.0.0-m1",
   "private": true,
-  "description": "the1o1.one — The House of Every Style",
+  "description": "the1o1.one — The House of Every Style (Next.js port, M1)",
   "scripts": {
-    "start": "serve . -l ${PORT:-3000} --no-clipboard"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "serve": "^14.2.4"
+    "next": "^15.3.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=20"
