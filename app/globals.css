@@ -685,3 +685,83 @@ html[data-hero="y2k"] .hx-sub{color:#272e38}
 html[data-hero="y2k"] .redeal{border-radius:999px;border:1px solid rgba(255,255,255,.9);
   background:linear-gradient(175deg,rgba(255,255,255,.9),rgba(255,255,255,.35));box-shadow:0 10px 24px rgba(20,23,28,.18)}
 html[data-hero="y2k"] .redeal:hover{color:#0047FF}
+
+/* ════════════════════════════════════════════════════════════════
+   REGISTER REFINEMENTS — pushing each world further, no new worlds.
+   Every rule here sharpens an existing register's own logic.
+   ════════════════════════════════════════════════════════════════ */
+
+/* — W·01 SWISS: the grid earns its keep. Hairline column rules behind the
+     intro, a red baseline tick on each label, tighter optical alignment. — */
+#w-swiss .intro{position:relative}
+#w-swiss .lbl{position:relative;padding-left:14px}
+#w-swiss .lbl::before{content:"";position:absolute;left:0;top:.45em;width:7px;height:2px;background:#E30613}
+#w-swiss h2{text-wrap:balance}
+#w-swiss .rule{box-shadow:0 3px 0 rgba(227,6,19,.16)}
+#w-swiss .panel h3{text-wrap:balance}
+
+/* — W·02 MAISON: didone needs air. Optical sizing, letterspaced smallcaps
+     service numerals, and a hairline that reads as gold leaf rather than a line. — */
+#w-maison h2{font-optical-sizing:auto;text-wrap:balance}
+#w-maison .svc .no{position:relative;padding-bottom:10px}
+#w-maison .svc .no::after{content:"";position:absolute;left:0;bottom:0;width:22px;height:1px;
+  background:linear-gradient(90deg,#C7A96B,rgba(199,169,107,0))}
+#w-maison .hr{background:linear-gradient(90deg,#C7A96B,rgba(199,169,107,.15))}
+#w-maison .eng b{position:relative}
+#w-maison .svc h3{letter-spacing:.005em}
+
+/* — W·03 BRUT: more brutal. Hard offset shadow on the rows, hazard-tape
+     underline on the stamp, and destination rows that shift on hover. — */
+#w-brut .row{transition:background .12s,color .12s,transform .1s}
+#w-brut .row:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 #000}
+#w-brut .rows{box-shadow:10px 10px 0 rgba(0,0,0,.14)}
+#w-brut h2 .inv{box-shadow:6px 6px 0 #FF3B30}
+#w-brut .stamp{box-shadow:5px 5px 0 #000}
+
+/* — W·04 TERMINAL: phosphor bloom. Text glow, a scanline sweep on the
+     window chrome, and a caret that reads as hardware. — */
+#w-term h2{text-shadow:0 0 14px rgba(126,240,160,.35)}
+#w-term .win{box-shadow:0 0 0 1px rgba(51,255,102,.12), 0 24px 60px rgba(0,0,0,.6), inset 0 0 60px rgba(51,255,102,.03)}
+#w-term .bar{background:linear-gradient(180deg,rgba(51,255,102,.06),transparent)}
+#w-term .cliline input{caret-color:#33FF66}
+#w-term .cliline input::placeholder{color:#1f7a41}
+#w-term .body .y{text-shadow:0 0 10px rgba(255,212,59,.25)}
+
+/* — W·05 TOY: bouncier. Chips get a pressed state with real depth, the
+     meter bubbles pop when hit, and focus rings match the candy palette. — */
+#w-toy .chip{transition:transform .18s cubic-bezier(.34,1.56,.64,1),box-shadow .18s}
+#w-toy .chip:hover{transform:translateY(-3px);box-shadow:0 9px 0 rgba(31,51,80,.16)}
+#w-toy .chip:active{transform:translateY(2px) scale(.97);box-shadow:0 3px 0 rgba(31,51,80,.18)}
+#w-toy .chip:focus-visible{outline:3px solid #4DABF7;outline-offset:3px}
+#w-toy .meter .bb{transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .3s,border-color .3s,color .3s}
+#w-toy .meter .bb.hit{box-shadow:0 4px 0 rgba(31,51,80,.14)}
+
+/* — W·06 NOIR: deeper cinema. Vignette on the frame, a red key-light edge
+     on the mail CTA, and film-grade tracking on the links. — */
+#w-noir::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:radial-gradient(120% 100% at 50% 50%,transparent 45%,rgba(0,0,0,.55) 100%)}
+#w-noir .mail{transition:color .25s,border-color .25s,text-shadow .25s}
+#w-noir .mail:hover{border-color:#C1121F;text-shadow:0 0 26px rgba(193,18,31,.45)}
+#w-noir .tagline{text-wrap:pretty}
+#w-noir .links a{transition:color .2s,letter-spacing .2s}
+#w-noir .links a:hover{letter-spacing:.24em}
+
+/* — G·01 Y2K: wetter chrome. A specular sweep across the capsules and a
+     bevelled inner lip that sells the metal. — */
+#w-y2k .cap{overflow:hidden}
+#w-y2k .cap::after{content:"";position:absolute;top:0;left:-40%;width:40%;height:100%;pointer-events:none;
+  background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));
+  transform:skewX(-14deg);transition:left .6s ease}
+#w-y2k .cap:hover::after{left:120%}
+#w-y2k .cap h3{text-wrap:balance}
+
+/* — SPINE: shared polish that respects every register. — */
+.specimen .card{transition:transform .3s ease,box-shadow .3s ease}
+.specimen:hover .card{transform:translateY(-2px)}
+.wtag{text-wrap:balance}
+.world h2,.walk-intro h2,.proof h2{text-wrap:balance}
+@media (prefers-reduced-motion:reduce){
+  #w-brut .row:hover,#w-toy .chip:hover,#w-toy .chip:active,.specimen:hover .card{transform:none}
+  #w-y2k .cap::after{display:none}
+  #w-noir .links a:hover{letter-spacing:.2em}
+}

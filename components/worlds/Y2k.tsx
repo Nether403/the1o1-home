@@ -1,57 +1,66 @@
-import LaunchArtifact from "@/components/artifact/LaunchArtifact";
+import Specimen from "@/components/specimen/Specimen";
+import { SPECIMEN_VARIANTS } from "@/content/specimen";
 
 export default function Y2k() {
   return (
     <>
+      {/* ————— SEAM GATE — guest world, flare sweep ————— */}
       <div className="seam" id="s-y2k" data-w="y2k" data-label="LOADING — G·01 Y2K CHROME" aria-hidden="true">
-        <div className="s-kick">RELAY — CHAPTER 06 / ROLLOUT CONSOLE</div>
+        <div className="s-kick">THE WALK — GUEST GATE · WORLD OF THE MONTH</div>
         <h3 className="chrome-txt">
-          NOW LOADING → RELAY_BETA
+          NOW LOADING → WORLD_07
           <br />
           Y2K CHROME
         </h3>
         <div className="flare" />
       </div>
 
-      <section className="world" id="w-y2k" data-w="y2k" data-label="G·01 — RELAY / ROLLOUT CONSOLE" aria-labelledby="y2k-title">
+      {/* ————— G·01 — WORLD OF THE MONTH ————— */}
+      <section className="world" id="w-y2k" data-w="y2k" data-label="G·01 — WORLD OF THE MONTH" aria-labelledby="y2k-title">
         <div className="y2k-blob" aria-hidden="true" />
-        <span className="wtag ea">G·01 / GUEST WORLD — RELAY PRIVATE BETA CONTROL SURFACE</span>
+        <span className="wtag ea">G·01 / WORLD OF THE MONTH — JULY 2026 EDITION: Y2K CHROME</span>
         <h2 className="chrome-txt ea" id="y2k-title">
-          Ship the future,
+          The future,
           <br />
-          then watch it closely.
+          as remembered.
         </h2>
         <p className="lede ea">
-          A private beta is not a smaller launch. It is a deliberately instrumented argument. Relay enters
-          with one audience, one decision workflow, and <b>exactly enough telemetry to learn where trust breaks.</b>
+          The house adds a chair every month. A guest register joins The Walk and the deal — fully
+          committed, budget-gated, gone when its month ends. This one is July&apos;s:{" "}
+          <b>liquid metal, capsule interfaces, and exactly one lens flare</b> — earned ironically.
         </p>
 
         <div className="caps">
           <div className="cap ea">
-            <div className="cn">BETA // 01</div>
-            <h3>Invite the right doubt</h3>
+            <div className="cn">PROGRAM // 01</div>
+            <h3>A new world, monthly</h3>
             <p>
-              Start with product teams already making consequential calls. The beta recruits reviewers,
-              not passive early adopters.
+              Registers here are coordinated by a <b>shared registry</b> — identity, walk position,
+              tokens, cursor, wipe personality — then authored by hand. A guest arrives as one pull
+              request. Next month: a different chair at the same table.
             </p>
           </div>
           <div className="cap ea">
-            <div className="cn">LAUNCH // 02</div>
-            <h3>Teach the boundary</h3>
+            <div className="cn">REGISTER // 02</div>
+            <h3>Chrome, sincerely</h3>
             <p>
-              The founder narrative demonstrates citations, caveats, and human ownership before it demonstrates speed.
+              Michroma set wide, silver gradients doing the work brushed aluminium used to, a cursor
+              of actual liquid metal, and a blob that follows you around like it&apos;s 1999 and the
+              future still gleams.
             </p>
           </div>
           <div className="cap ea">
-            <div className="cn">LOOP // 03</div>
-            <h3>Measure the review</h3>
+            <div className="cn">COMMISSION // 03</div>
+            <h3>Your register, next</h3>
             <p>
-              Target signals: evidence opened, recommendations challenged, decisions revised, and reversal criteria recorded.
+              This is also the offer: bring a brand, get a world. If your problem deserves its own
+              design language, <b>that&apos;s a conversation</b> —{" "}
+              <a href="#inquiry">open the channel ↘</a>.
             </p>
           </div>
         </div>
 
-        <div className="artifact-wrap ea"><LaunchArtifact world="y2k" /></div>
+        <Specimen world="y2k" variant={SPECIMEN_VARIANTS.y2k} />
       </section>
     </>
   );

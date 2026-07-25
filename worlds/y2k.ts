@@ -17,8 +17,9 @@ export const y2k: WorldManifest = {
   meterEligible: true,
   featured: { from: "2026-07-01T00:00:00Z", until: "2026-08-01T00:00:00Z", weight: 0.3 },
   label: "G·01 Y2K CHROME",
-  sectionLabel: "G·01 — RELAY / ROLLOUT CONSOLE",
-  gateLabel: "RELAY — CHAPTER 06 / ROLLOUT CONSOLE",
+  shortName: "Y2K",
+  sectionLabel: "G·01 — WORLD OF THE MONTH",
+  gateLabel: "THE WALK — GUEST GATE · WORLD OF THE MONTH",
   tokens: {
     bg: "#C9D0D9",
     ink: "#14171C",

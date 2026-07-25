@@ -2,7 +2,7 @@
 
 > The roster is extensible by design: server-safe metadata coordinates an
 > authored section, seam gate, optional motion/module, tests, and OG card.
-> Six core worlds remain permanent; G.01 is the active guest.
+> Six core worlds remain permanent; G·01 is the active guest.
 
 ## Why
 

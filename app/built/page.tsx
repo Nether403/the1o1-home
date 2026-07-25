@@ -37,10 +37,11 @@ export default function Built() {
           One page. <span>No excuses.</span>
         </h1>
         <p className="b-lede">
-          The homepage you just left carries one fictional product argument through six permanent design
-          worlds and one active guest — with dedicated typography, layout, motion, and interaction for each.
-          This page explains the shared registry and authored implementation. If you&apos;re evaluating
-          whether we can engineer your hard problem: this is the evidence, not the pitch.
+          The homepage you just left carries one brief — &ldquo;Make it impossible to ignore.&rdquo; —
+          through six permanent design worlds and one monthly guest, each with its own typography,
+          layout, motion language, and interaction signature. This page explains the shared registry
+          and the authored implementation. If you&apos;re evaluating whether we can engineer your hard
+          problem: this is the evidence, not the pitch.
         </p>
       </header>
 
@@ -130,7 +131,7 @@ export default function Built() {
         </table>
         <p>
           Fonts are served from the application through <code>next/font</code>, with no browser request to
-          Google font hosts. The prerendered HTML contains the evidence room, every Relay chapter, the
+          Google font hosts. The prerendered HTML contains the evidence room, all seven worlds, the
           inquiry fallback, and the contact path. Browser tests verify no-JavaScript and reduced-motion
           behavior; CI also measures the route assets and the client Rapier WASM separately.
         </p>

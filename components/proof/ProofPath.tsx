@@ -7,9 +7,9 @@ export default function ProofPath() {
         <p className="proof-kick">THE EVIDENCE ROOM / PUBLIC WORK</p>
         <h2 id="proof-title">Range gets attention.<br /><span>Judgment earns trust.</span></h2>
         <p className="proof-lede">
-          For founders and product leaders working through an uncertain launch: clarify the bet, make it tangible,
-          and build enough of the real thing to learn from it. These are public practice artifacts. Client-approved
-          case records will join them only when the evidence can be shown honestly.
+          The worlds below this prove range. These prove it shipped. Public, inspectable work — no
+          invented clients, no borrowed logos. Client-approved case records will join them only when
+          the evidence can be shown honestly.
         </p>
       </header>
 
@@ -33,14 +33,14 @@ export default function ProofPath() {
 
       <div className="proof-fit" id="fit">
         <p className="proof-kick">WHERE THE PRACTICE ENTERS</p>
-        <div><span>01</span><h3>Clarify the bet</h3><p>Customer evidence, product thesis, positioning, constraints, and the question worth answering.</p></div>
-        <div><span>02</span><h3>Make it tangible</h3><p>Product UX, identity, interaction, and a working prototype strong enough to test the premise.</p></div>
-        <div><span>03</span><h3>Launch and learn</h3><p>A production surface, a coherent launch system, and a deliberate loop back to evidence.</p></div>
+        <div><span>01</span><h3>Find the register</h3><p>The question worth answering, the audience it must convince, and the visual language the problem actually deserves.</p></div>
+        <div><span>02</span><h3>Make it real</h3><p>Identity, interface, interaction, motion — and a working build strong enough to test the premise rather than describe it.</p></div>
+        <div><span>03</span><h3>Ship it honestly</h3><p>A production surface with budgets enforced, accessibility respected, and every claim on it true.</p></div>
       </div>
 
       <div className="proof-actions">
-        <a href="#inquiry">Bring a product question ↘</a>
-        <a href="#walk">Or enter the seven-world launch →</a>
+        <a href="#inquiry">Bring the hard problem ↘</a>
+        <a href="#walk">Or walk all seven worlds →</a>
       </div>
     </section>
   );
