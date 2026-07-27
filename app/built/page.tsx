@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "How this was built — the1o1.one",
     description: "Seven design systems on one page, budget-gated in CI. The full dossier.",
-    images: [{ url: "/og/deal", width: 1200, height: 630 }],
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
   },
 };
 
