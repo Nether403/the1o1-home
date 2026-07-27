@@ -1,2 +1,3 @@
 [build]
 publish = "out"
+command = "npx next build"
